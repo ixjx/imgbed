@@ -201,8 +201,10 @@ FileProgress.prototype.setComplete = function(up, info) {
         var domain = up.getOption('domain');
         url = domain + encodeURI(res.key);
         var link = domain + res.key;
-        str = "<div><strong>MDLink:</strong><a id='url' href=" + url + " target='_blank' > " + link + "</a></div>" +
+        var MDlink = "![](" + url + ")";
+        str = "<div><strong>MDLink:</strong><a href=" + url + " target='_blank' > " + link + "</a></div>" +
             "<div class=hash><strong>Hash:</strong>" + res.hash + "</div>";
+        str = str + "<input type='text' value= " + MDlink + " id='mdlink' style='width: 100%'>";
     }
 
     tdProgress.html(str).removeClass().next().next('.status').hide();
